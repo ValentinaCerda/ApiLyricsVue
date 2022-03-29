@@ -42,19 +42,30 @@ export default {
   },
   methods: {
     async submit() {
-      console.log('Se ejecuta el método submit')
-      // 1 ejemplo
-      //consumirCanciones(this.artista, this.cancion).then( letra => console.log(letra.lyrics));
-      // 2 Ejemplo
+      try {
+        if (this.artista != null || this.cancion != null) {
+          this.$swal.fire({
+            title: "El artista o canción no existe. ¡Prueba de nuevo!",
+            icon: 'warning',
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        }
+      } catch (error) {
+        throw error;
+      }
       const resultado = await consumirCanciones(this.artista, this.cancion);
       this.resultado = resultado.lyrics;
-      console.log(resultado.lyrics);
-    },
-    showAlert() {
-      this.$swal('Hello vue world!');
+      console.log('Se ejecuta el método submit'); 
+      
     },
   },
 };
+  
 </script>
 
 <style>
@@ -64,7 +75,7 @@ export default {
   background-repeat: no-repeat;
   height: 100vh;
   background-size: cover;
- 
+  /* PONER IMAGEN DENTRO DE CONTENEDOR */
 }
 
 h1{
