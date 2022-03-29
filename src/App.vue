@@ -73,9 +73,7 @@ export default {
 .fondo {
   background-image: linear-gradient(rgba(255, 255, 255, 0.514), rgba(255, 255, 255, 0.479)), url('assets/fondo.png');
   background-repeat: no-repeat;
-  height: 100vh;
   background-size: cover;
-  /* PONER IMAGEN DENTRO DE CONTENEDOR */
 }
 
 h1{
@@ -91,7 +89,7 @@ h1{
 }
 
 button {
-  font-family: 'Secular One', sans-serif;
+  font-family: 'Secular One', sans-serif; 
 }
 .result {
   color: #000;
